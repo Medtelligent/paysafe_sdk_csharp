@@ -1,2 +1,13 @@
-bin
-obj
+# User-specific files
+*.csproj.user
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
+
+# Other
+packages/
+/.vs

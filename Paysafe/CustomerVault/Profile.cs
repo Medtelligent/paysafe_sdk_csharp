@@ -322,7 +322,11 @@ namespace Paysafe.CustomerVault
         /// <returns>List<Address></returns>
         public List<Address> addresses()
         {
-            return this.getProperty(CustomerVaultConstants.addresses);
+            var addresses = this.getProperty(CustomerVaultConstants.addresses);
+
+            return addresses != null
+                ? (List<Address>) addresses
+                : new List<Address>();
         }
 
         /// <summary>
