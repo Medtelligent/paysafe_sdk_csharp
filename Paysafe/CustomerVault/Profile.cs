@@ -324,8 +324,8 @@ namespace Paysafe.CustomerVault
         {
             var addresses = this.getProperty(CustomerVaultConstants.addresses);
 
-            return addresses != null
-                ? (List<Address>) addresses
+            return addresses != null && addresses.Count != 0
+                ? (List<Address>)addresses
                 : new List<Address>();
         }
 
@@ -344,7 +344,11 @@ namespace Paysafe.CustomerVault
         /// <returns>List<Card></returns>
         public List<Card> cards()
         {
-            return this.getProperty(CustomerVaultConstants.cards);
+            var cards = this.getProperty(CustomerVaultConstants.cards);
+
+            return cards != null && cards.Count != 0
+                ? (List<Card>)cards
+                : new List<Card>();
         }
 
         /// <summary>
@@ -418,7 +422,11 @@ namespace Paysafe.CustomerVault
         /// <returns>List<Address></returns>
         public List<ACHBankAccounts> achBankAccounts()
         {
-            return this.getProperty(CustomerVaultConstants.achBankAccounts);
+            var achs = this.getProperty(CustomerVaultConstants.achBankAccounts);
+
+            return achs != null && achs.Count != 0
+                ? (List<ACHBankAccounts>)achs
+                : new List<ACHBankAccounts>();
         }
 
         /// <summary>
