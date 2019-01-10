@@ -281,7 +281,9 @@ namespace Paysafe.CustomerVault
         /// <returns>bool</returns>
         public bool defaultCardIndicator()
         {
-            return this.getProperty(CustomerVaultConstants.defaultCardIndicator);
+            var defaultCardIndicator = this.getProperty(CustomerVaultConstants.defaultCardIndicator);
+
+            return defaultCardIndicator != null && (bool)defaultCardIndicator;
         }
 
         /// <summary>
@@ -507,6 +509,16 @@ namespace Paysafe.CustomerVault
                     this.properties[CustomerVaultConstants.billingAddress] = new BillingAddress.BillingAddressBuilder<CardBuilder>(this);
                 }
                 return this.properties[CustomerVaultConstants.billingAddress] as BillingAddress.BillingAddressBuilder<CardBuilder>;
+            }
+
+            /// <summary>
+            /// Set the defaultCardIndicator
+            /// </summary>
+            /// <returns>void</returns>
+            public CardBuilder defaultCardIndicator(bool data)
+            {
+                this.properties[CustomerVaultConstants.defaultCardIndicator] = data;
+                return this;
             }
         }
 
